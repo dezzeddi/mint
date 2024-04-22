@@ -555,7 +555,7 @@ defmodule Mint.Core.Transport.SSL do
 
   # NOTE: Should this be private and moved to a different module?
   @doc false
-  def default_ciphers(), do: get_valid_suites(:ssl.cipher_suites(), [])
+  def default_ciphers(), do: get_valid_suites(ssl.cipher_suites(:all, :"tlsv1.3"), [])
 
   @dialyzer {:no_match, get_valid_suites: 2}
 
